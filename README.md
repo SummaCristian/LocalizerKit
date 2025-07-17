@@ -57,6 +57,7 @@ WindowGroup {
 ```
 
 This modifier registers each language into ```LocalizerRegistry```, using the language specified in each struct.
+
 ⚠️ If multiple structs register for the same language, the last one will overwrite the previous entry.
 
 ### 🧩 Manual registration (advanced use)
