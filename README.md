@@ -1,8 +1,8 @@
 # LocalizerKit
 
-**LocalizerKit** is a Swift Package that provides the foundation to localize your apps built in Swift Playgrounds.
+**LocalizerKit** is a Swift Package that provides the foundation to localize your apps built in Swift Playground.
 
-While Swift Playgrounds is the main target, since it lacks native localization support unlike Xcode, **this package works in any Swift project**.
+While Swift Playground is the main target, since it lacks native localization support unlike Xcode, **this package works in any Swift project**.
 
 ## 🚀 Usage
 
@@ -16,7 +16,7 @@ import LocalizerKit
 This package relies on an enum to define the keys used for localized strings.
 This improves autocomplete, avoids typos, and makes the code easier to maintain.
 
-Your keyset should conform to LocalizedKeyProtocol, and also be RawRepresentable with String and Hashable.
+Your keyset should conform to ```LocalizedKeyProtocol```, and also be ```RawRepresentable``` with ```String``` and ```Hashable```.
 
 ``` swift
 enum LocalizedKey: String, LocalizedKeyProtocol {
@@ -27,10 +27,10 @@ enum LocalizedKey: String, LocalizedKeyProtocol {
 ```
 
 ### 📝 Defining localized strings
-To define the actual strings, create one struct per supported language, conforming to LocalizedLanguage.
+To define the actual strings, create one struct per supported language, conforming to ```LocalizedLanguage```.
 Each struct must:
-	•	Specify its SupportedLanguage (e.g. .en, .it)
-	•	Provide a dictionary mapping keys to strings
+- Specify its ```SupportedLanguage``` (e.g. ```.en```, ```.it```)
+- Provide a ```dictionary``` mapping keys to strings
 
 ``` swift
 struct EnglishStrings: LocalizedLanguage {
@@ -56,11 +56,12 @@ WindowGroup {
 }
 ```
 
-This modifier registers each language into LocalizerRegistry, using the language specified in each struct.
+This modifier registers each language into ```LocalizerRegistry```, using the language specified in each struct.
 ⚠️ If multiple structs register for the same language, the last one will overwrite the previous entry.
 
 ### 🧩 Manual registration (advanced use)
-You can skip the view modifier and register manually—for example, in your init():
+You can skip the view modifier and register manually.
+For example, in your ```init()```:
 
 ``` swift
 init() {
@@ -73,14 +74,14 @@ init() {
 ```
 
 ### 🖥️ Using localized strings in views
-Once set up, retrieving a localized string is simple:Once set up, retrieving a localized string is simple:
+Once set up, retrieving a localized string is simple:
 
 ``` swift
 Text(Localizer.get(LocalizedKey.welcome))
 ```
 
 ### 💡 Cleaner syntax with extension
-To avoid writing LocalizedKey. every time, add this helper:
+To avoid writing ``` LocalizedKey. ``` every time, add this helper:
 
 ``` swift
 extension Localizer {
@@ -98,17 +99,19 @@ Text(Localizer.get(.welcome))
 
 ### 🌍 Adding a new localization
 To add support for a new language:
-	1.	Create a struct for the new language (e.g. SpanishStrings), implementing LocalizedLanguage.
-	2.	Add it to the .localized(in: [...]) modifier or manually register it.
+1. Create a struct for the new language (e.g. ```SpanishStrings```), implementing ```LocalizedLanguage```.
+2. Add it to the ```.localized(in: [...])``` modifier or manually register it.
 
 Done! The app will now automatically use that language if it matches the user’s preferred locale.
 
 ## 📦 Installation
 To use LocalizerKit in your project:
-	1.	Open Swift Playgrounds or Xcode.
-	2.	Add a Swift Package dependency with this URL:
-        https://github.com/SummaCristian/LocalizerKit.git
-    3.	Import the module in your files:
+1. Open Swift Playground or Xcode.
+2. Add a Swift Package dependency with this URL:
+```
+https://github.com/SummaCristian/LocalizerKit.git
+```
+3. Import the module in your files:
 ```swift
 import LocalizerKit
 ```
