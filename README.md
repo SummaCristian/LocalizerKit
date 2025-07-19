@@ -32,7 +32,7 @@ enum LocalizedKey: String, LocalizedKeyProtocol {
 ```
 
 ### 📝 Defining localized strings
-To define the actual strings, create one struct per supported language, conforming to ```LocalizedLanguage```.
+To define the actual strings, create one struct per supported language, conforming to `LocalizedLanguage`.
 Each struct must:
 - Specify its `SupportedLanguage` (e.g. `.en`, `.it`)
 - Provide a `dictionary` mapping keys to strings
@@ -79,6 +79,29 @@ init() {
 }
 ```
 
+### 🌍 Language resolution and overrides
+By default, LocalizerKit uses the first language from `Locale.preferredLanguages` that is also registered in `LocalizerRegistry`.
+
+You can override this behavior with `LocalizerSettings`:
+``` swift
+@StateObject private var settings = LocalizerSettings()
+
+Toggle("Override system language", isOn: $settings.overrideSystemLanguages)
+
+Picker("Language", selection: $settings.selectedLanguage) {
+    ForEach(Localizer.availableLanguages, id: \.self) { lang in
+        Text("\(lang.flag) \(lang.displayName)").tag(lang)
+    }
+}
+```
+
+The `Localizer` struct exposes two variables you can tinker with:
+- `.overrideSystemLanguages`: a `Bool` that, when set `true`, makes `Localizer` ignore the system's `Locale.preferredLanguages`
+- `.selectedLanguage`: a `SupportedLanguage` value that defines the app's language when override is enabled
+
+When `Localizer.overrideSystemLanguages` is `true`, all localization lookups will use `.selectedLanguage` instead of the system locale.
+This makes it easy to detach your app’s language from the device’s settings, ideal for providing an in-app language picker for example.
+
 ### 🖥️ Using localized strings in views
 Once set up, retrieving a localized string is simple:
 
@@ -101,6 +124,11 @@ Then use:
 
 ``` swift
 Text(Localizer.get(.welcome))
+```
+
+You can locally override the language in a specific Text:
+``` swift
+Text(Localizer.get(.welcome, in: settings.currentLanguage))
 ```
 
 ### 🌍 Adding a new localization
