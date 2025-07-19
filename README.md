@@ -128,7 +128,7 @@ Text(Localizer.get(.welcome))
 
 You can locally override the language in a specific Text:
 ``` swift
-Text(Localizer.get(.welcome, in: settings.currentLanguage))
+Text(Localizer.get(.welcome, in: .fr))
 ```
 
 ### 🌍 Adding a new localization
