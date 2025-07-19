@@ -41,4 +41,16 @@ public struct LocalizerRegistry {
     public static func get(_ rawKey: String, for language: SupportedLanguage) -> String? {
         bundles[language]?[rawKey]
     }
+    
+    /// Checks whether a localization bundle has been registered for the specified language.
+    ///
+    /// This method verifies if a given `SupportedLanguage` is currently present
+    /// in the internal `bundles` dictionary, meaning it has been registered
+    /// via the `register(_:)` method.
+    ///
+    /// - Parameter language: The `SupportedLanguage` to check for registration.
+    /// - Returns: `true` if the language has been registered; otherwise, `false`.
+    public static func supports(_ language: SupportedLanguage) -> Bool {
+        bundles.keys.contains(language)
+    }
 }

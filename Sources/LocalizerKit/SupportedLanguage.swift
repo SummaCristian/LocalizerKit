@@ -79,11 +79,33 @@ public enum SupportedLanguage: String, CaseIterable, Codable {
         }
     }
     
-    /// Returns the appropriate enum value based on the device's first preferred language
+    //// Returns the appropriate enum value based on the device's preferred languages.
+    ///
+    /// This method returns the first language that matches both the user's preferences
+    /// and the app's registered localizations. If no match is found, it defaults to `.en`.
+    ///
+    /// - Returns: The best matching `SupportedLanguage`, or `.en` if none are registered.
     public static func fromDeviceLanguage() -> SupportedLanguage {
-        let preferred = Locale.preferredLanguages.first ?? "en"
-        let code = String(preferred.prefix(2))  // "it-IT" → "it"
-        
-        return Self(rawValue: code) ?? .en
+        fromDeviceLanguages().first ?? .en
+    }
+    
+    /// Returns a prioritized list of supported languages that match the user's preferred languages.
+    ///
+    /// This method iterates over the user's preferred language codes and returns only those
+    /// that are both valid `SupportedLanguage` cases and have been registered in the `LocalizerRegistry`.
+    ///
+    /// The result preserves the original order of `Locale.preferredLanguages`, filtered to only include
+    /// languages your app has localizations for (i.e., registered via `LocalizerRegistry`).
+    ///
+    /// - Returns: An array of `SupportedLanguage` values sorted by the user's preferences, containing only supported and registered languages.
+    public static func fromDeviceLanguages() -> [SupportedLanguage] {
+        Locale.preferredLanguages.compactMap { langCode in
+            let code = String(langCode.prefix(2))
+            if let language = SupportedLanguage(rawValue: code),
+               LocalizerRegistry.supports(language) {
+                return language
+            }
+            return nil
+        }
     }
 }
