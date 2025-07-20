@@ -114,8 +114,11 @@ To avoid writing `LocalizedKey.` every time, add this helper:
 
 ``` swift
 extension Localizer {
-    public static func get(_ key: LocalizedKey) -> String {
-        get(key as any LocalizedKeyProtocol)
+    public static func get(
+      _ key: LocalizedKey,
+      in lang: SupportedLanguage = Localizer.currentLanguage
+    ) -> String {
+        return get(key as any LocalizedKeyProtocol, in: lang)
     }
 }
 ```
@@ -128,7 +131,7 @@ Text(Localizer.get(.welcome))
 
 You can locally override the language in a specific Text:
 ``` swift
-Text(Localizer.get(.welcome, in: settings.currentLanguage))
+Text(Localizer.get(.welcome, in: .fr))
 ```
 
 ### 🌍 Adding a new localization
