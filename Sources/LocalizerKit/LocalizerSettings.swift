@@ -7,6 +7,9 @@ import SwiftUI
 /// This class is intended to be used in views via `@StateObject` or `@ObservedObject`.
 @MainActor
 public final class LocalizerSettings: ObservableObject {
+
+    /// Public init function
+    public init() {}
     
     /// A Boolean value that determines whether the app should override the system’s preferred languages.
     ///
