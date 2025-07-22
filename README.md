@@ -31,6 +31,18 @@ enum LocalizedKey: String, LocalizedKeyProtocol {
 }
 ```
 
+#### 🧠 Why use an enum for keys?
+LocalizerKit ensures your keys are compiler-checked. If you reference a missing key, your code won’t compile — no more runtime crashes due to typos.
+Plus, the IDE autocompletes your keys automatically, making localization fast, safe, and efficient.
+
+<p align="center">
+  <picture>
+    <source srcset="Assets/AutocompletePreview_Dark.jpeg" media="(prefers-color-scheme: dark)">
+    <source srcset="Assets/AutocompletePreview_Light.jpeg" media="(prefers-color-scheme: light)">
+    <img src="Assets/AutocompletePreview_Light.jpeg" width="600" alt="Autocomplete in Swift Playground">
+  </picture>
+</p>
+
 ### 📝 Defining localized strings
 To define the actual strings, create one struct per supported language, conforming to `LocalizedLanguage`.
 Each struct must:
@@ -140,6 +152,26 @@ To add support for a new language:
 2. Add it to the `.localized(in: [...])` modifier or manually register it.
 
 Done! The app will now automatically use that language if it matches the user’s preferred locale.
+
+### 🌐 Supported Languages
+LocalizerKit currently includes out-of-the-box translations for 30 languages, and growing. 
+You can register just the ones you need for your app, no need to rush all of them at launch.
+
+Supported languages include:
+### 🌐 Supported Languages
+
+|        |        |        |
+|--------|--------|--------|
+| 🇺🇸 English | 🇮🇹 Italian | 🇫🇷 French |
+| 🇩🇪 German | 🇪🇸 Spanish | 🇵🇹 Portuguese |
+| 🇳🇱 Dutch | 🇸🇪 Swedish | 🇩🇰 Danish |
+| 🇫🇮 Finnish | 🇵🇱 Polish | 🇨🇿 Czech |
+| 🇷🇴 Romanian | 🇭🇺 Hungarian | 🇬🇷 Greek |
+| 🇹🇷 Turkish | 🇷🇺 Russian | 🇺🇦 Ukrainian |
+| 🇮🇱 Hebrew | 🇸🇦 Arabic | 🇮🇳 Hindi |
+| 🇨🇳 Chinese | 🇯🇵 Japanese | 🇰🇷 Korean |
+| 🇻🇳 Vietnamese | 🇹🇭 Thai | 🇮🇩 Indonesian |
+| 🇲🇾 Malay | 🇳🇴 Norwegian | 🇮🇷 Persian |
 
 ## 📦 Installation
 To use LocalizerKit in your project:
