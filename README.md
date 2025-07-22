@@ -91,7 +91,7 @@ This modifier registers each language into `LocalizerRegistry`, using the langua
 
 ⚠️ If multiple structs register for the same language, the last one will overwrite the previous entry.
 
-### 🧩 Manual registration (advanced use)
+#### 🧩 Manual registration (advanced use)
 You can skip the view modifier and register manually.
 For example, in your `init()`:
 
@@ -135,7 +135,7 @@ Once set up, retrieving a localized string is simple:
 Text(Localizer.get(LocalizedKey.welcome))
 ```
 
-### 💡 Cleaner syntax with extension
+#### 💡 Cleaner syntax with extension
 To avoid writing `LocalizedKey.` every time, add this helper:
 
 ``` swift
@@ -172,8 +172,6 @@ LocalizerKit currently includes out-of-the-box translations for 30 languages, an
 You can register just the ones you need for your app, no need to rush all of them at launch.
 
 Supported languages include:
-### 🌐 Supported Languages
-
 |        |        |        |
 |--------|--------|--------|
 | 🇺🇸 English | 🇮🇹 Italian | 🇫🇷 French |
