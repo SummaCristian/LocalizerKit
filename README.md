@@ -15,7 +15,7 @@
   <a href="https://github.com/SummaCristian/LocalizerKit/blob/main/LICENSE">
     <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-007ACC?style=for-the-badge&logo=github">
   </a>
-  <img alt="Languages" src="https://img.shields.io/badge/Languages-30%2B-34D058?style=for-the-badge&logo=translate">
+  <img alt="Languages" src="https://img.shields.io/badge/Languages-30-34D058?style=for-the-badge&logo=translate">
   <img alt="Latest Release" src="https://img.shields.io/github/v/release/SummaCristian/LocalizerKit?style=for-the-badge">
 </p>
 
