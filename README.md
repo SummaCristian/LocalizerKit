@@ -21,7 +21,15 @@
 
 **LocalizerKit** is a Swift Package that provides the foundation to localize your apps built in Swift Playground.
 
-While Swift Playground is the main target, since it lacks native localization support unlike Xcode, **this package works in any Swift project**.
+Although Swift Playground technically supports `.strings`-based localization inside Swift projects, the experience is half-baked:
+- You can’t create or edit `.strings` files from within Playground itself, you need an external app like Working Copy or similar.
+- It doesn’t help you generate the required `.lproj` file structure.
+- It doesn’t register supported languages in the app bundle, so iOS won’t show a language picker in your app’s Settings page.
+
+**LocalizerKit** provides a more robust experience for both developers and users:
+- It works entirely within Swift Playground using plain `.swift` files.
+- It allows overriding the system language at runtime.
+- It enables you to add an in-app language picker, giving users direct control over the language your app uses.
 
 ## 🚀 Usage
 
