@@ -9,14 +9,22 @@
   <a href="https://swift.org">
     <img alt="Swift" src="https://img.shields.io/badge/Swift-F05138?style=for-the-badge&logo=swift&logoColor=white">
   </a>
-  <a href="https://swiftpackageindex.com/SummaCristian/LocalizerKit">
-    <img alt="Swift Package" src="https://img.shields.io/badge/SPM-compatible-F05138?style=for-the-badge&logo=swift&logoColor=white">
-  </a>
   <a href="https://github.com/SummaCristian/LocalizerKit/blob/main/LICENSE">
     <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-007ACC?style=for-the-badge&logo=github">
   </a>
   <img alt="Languages" src="https://img.shields.io/badge/Languages-30-34D058?style=for-the-badge&logo=translate">
-  <img alt="Latest Release" src="https://img.shields.io/github/v/release/SummaCristian/LocalizerKit?style=for-the-badge">
+  <a href="https://github.com/SummaCristian/LocalizerKit/releases">
+    <img alt="Latest Release" src="https://img.shields.io/github/v/release/SummaCristian/LocalizerKit?style=for-the-badge">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://swiftpackageindex.com/SummaCristian/LocalizerKit">
+    <img alt="Swift Versions" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FSummaCristian%2FLocalizerKit%2Fbadge%3Ftype%3Dswift-versions">
+  </a>
+  <a href="https://swiftpackageindex.com/SummaCristian/LocalizerKit">
+    <img alt="Supported Platforms" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FSummaCristian%2FLocalizerKit%2Fbadge%3Ftype%3Dplatforms">
+  </a>
 </p>
 
 **LocalizerKit** is a Swift Package that provides the foundation to localize your apps built in Swift Playground.
